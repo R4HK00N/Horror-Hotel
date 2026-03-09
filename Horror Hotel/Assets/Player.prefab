@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8663930929252822652}
   - component: {fileID: 5836565105426860881}
   - component: {fileID: 2519004769706776273}
+  - component: {fileID: 6911411793568978906}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.88037, y: 0.95, z: -10.1015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.9, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4449606671155130694}
@@ -116,8 +117,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.3
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &8511338108773083806
@@ -138,8 +139,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1.8
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -204,7 +205,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25e0fac2e17c4049acbcdd1d10195c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  flashlight: {fileID: 0}
+  flashlight: {fileID: 7973678693814901683}
+  maxBattery: 30
+  batteryIncrease: 1
+  batteryDecrease: 2
+  cooldownTime: 2
+  testBatteryText: {fileID: 0}
+--- !u!114 &6911411793568978906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054782589873979049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a288b77235f6cff42b6071eea507c299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  interactionDistance: 3
 --- !u!1 &3352472645911668942
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,10 +613,10 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 267.49127
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 2.915349
+  m_Range: 12
+  m_SpotAngle: 86.72243
+  m_InnerSpotAngle: 31.586378
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
     m_Type: 0
@@ -637,7 +656,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 4691
+  m_ColorTemperature: 5895
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
