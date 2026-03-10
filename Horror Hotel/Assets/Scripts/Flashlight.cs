@@ -38,7 +38,8 @@ public class Flashlight : MonoBehaviour
         }
         FlashlightBattery();
 
-        testBatteryText.text = currentBattery.ToString("N0");
+        if(testBatteryText != null)
+            testBatteryText.text = currentBattery.ToString("N0");
     }
     void FlashlightBattery()
     {
