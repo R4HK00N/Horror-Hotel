@@ -45,7 +45,8 @@ public class Movement : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
+        Camera.main.transform.rotation = Quaternion.Euler(xRotation, 0f, 0f);
 
 
         isRunning = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0f;
