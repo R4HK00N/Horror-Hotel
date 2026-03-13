@@ -5,16 +5,20 @@ public class Navmesh : MonoBehaviour
 {
     public Transform player;
     public NavMeshAgent agent;
+
     [SerializeField] float detectionRadius = 10f;
     [SerializeField] float roamRadius = 20f;
-    private bool isChasingPlayer;
+
+    [Header("Stairs")]
+    [SerializeField] Transform stairBottom;
+    [SerializeField] Transform stairTop;
+    [SerializeField] float floorThreshold = 3f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         if (player == null) player = GameObject.FindWithTag("Player")?.transform;
         SetRandomDestination();
-        isChasingPlayer = false;
     }
 
     void Update()
@@ -22,43 +26,44 @@ public class Navmesh : MonoBehaviour
         if (player == null) return;
 
         float distToPlayer = Vector3.Distance(transform.position, player.position);
-        bool wantsToChase = distToPlayer < detectionRadius;
 
-        if (wantsToChase)
+        if (distToPlayer < detectionRadius)
         {
-            agent.SetDestination(player.position);
-            isChasingPlayer = true;
+            MoveToTarget(player.position);
+        }
+        else if (agent.remainingDistance < 1f)
+        {
+            SetRandomDestination();
+        }
+    }
+
+    void MoveToTarget(Vector3 target)
+    {
+        if (Mathf.Abs(transform.position.y - target.y) > floorThreshold)
+        {
+            Transform chosenStair = Random.value > 0.5f ? stairBottom : stairTop;
+            agent.SetDestination(chosenStair.position);
+
+            if (Vector3.Distance(transform.position, chosenStair.position) < 2.5f)
+            {
+                Transform otherStair = (chosenStair == stairBottom) ? stairTop : stairBottom;
+                transform.position = otherStair.position + Vector3.up * 0.5f;
+                agent.Warp(transform.position);
+                agent.SetDestination(target);
+            }
         }
         else
         {
-            if (isChasingPlayer || agent.remainingDistance < 1f)
-            {
-                SetRandomDestination();
-                isChasingPlayer = false;
-            }
+            agent.SetDestination(target);
         }
     }
 
     void SetRandomDestination()
     {
-        for (int i = 0; i < 30; i++)
+        Vector3 rand = transform.position + Random.insideUnitSphere * roamRadius;
+        if (NavMesh.SamplePosition(rand, out NavMeshHit hit, roamRadius, 1))
         {
-            Vector3 randomPoint = transform.position + Random.insideUnitSphere * roamRadius;
-            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, roamRadius, 1))
-            {
-                agent.SetDestination(hit.position);
-                return;
-            }
-        }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (agent && agent.isActiveAndEnabled)
-        {
-            Gizmos.color = isChasingPlayer ? Color.red : Color.yellow;
-            Gizmos.DrawLine(transform.position, agent.destination);
-            Gizmos.DrawWireSphere(agent.destination, 1f);
+            MoveToTarget(hit.position);
         }
     }
 }
