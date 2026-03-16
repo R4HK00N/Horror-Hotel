@@ -391,6 +391,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &680151272
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680151274}
+  - component: {fileID: 680151273}
+  m_Layer: 0
+  m_Name: StaticLightingSky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &680151273
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680151272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.StaticLightingSky
+  m_Profile: {fileID: 0}
+  m_StaticLightingSkyUniqueID: 0
+  m_StaticLightingCloudsUniqueID: 0
+  m_StaticLightingVolumetricClouds: 0
+  bounces: 1
+--- !u!4 &680151274
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680151272}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073479131
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +688,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17802737556122141, guid: e1ffcda84a56f3740bfccd1342eea522,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
+    - target: {fileID: 259626600773759735, guid: e1ffcda84a56f3740bfccd1342eea522,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
+    - target: {fileID: 1530067129696140892, guid: e1ffcda84a56f3740bfccd1342eea522,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
     - target: {fileID: 3903461175777587643, guid: e1ffcda84a56f3740bfccd1342eea522,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -694,6 +758,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GangRechtDeur2
       objectReference: {fileID: 0}
+    - target: {fileID: 4834936067260626735, guid: e1ffcda84a56f3740bfccd1342eea522,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
+    - target: {fileID: 7022190260553836540, guid: e1ffcda84a56f3740bfccd1342eea522,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
+    - target: {fileID: 8479764385910395968, guid: e1ffcda84a56f3740bfccd1342eea522,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -898,6 +977,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5239990378028474387, guid: 8c36f46aa670add47825a636968a8aa9,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0a679c3eb2198c46b1a03fae201f1eb, type: 2}
+    - target: {fileID: 6086336752030438038, guid: 8c36f46aa670add47825a636968a8aa9,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0a679c3eb2198c46b1a03fae201f1eb, type: 2}
+    - target: {fileID: 9149438747613381436, guid: 8c36f46aa670add47825a636968a8aa9,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0a679c3eb2198c46b1a03fae201f1eb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1102,6 +1196,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GangRechtDeur 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1939752065739201841, guid: 4284260e9e904e345835cbadaec8d537,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
+    - target: {fileID: 2029983264654165746, guid: 4284260e9e904e345835cbadaec8d537,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
+    - target: {fileID: 4934194112279680746, guid: 4284260e9e904e345835cbadaec8d537,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0a679c3eb2198c46b1a03fae201f1eb, type: 2}
+    - target: {fileID: 7012394397654400790, guid: 4284260e9e904e345835cbadaec8d537,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3a5e76f331ef9948adb33412c4bb7b5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1191,3 +1305,4 @@ SceneRoots:
   - {fileID: 8026729273705097824}
   - {fileID: 6707349019152085357}
   - {fileID: 2731591072972266329}
+  - {fileID: 680151274}
