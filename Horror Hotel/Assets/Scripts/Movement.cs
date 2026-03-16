@@ -75,6 +75,6 @@ public class Movement : MonoBehaviour
         float speed = isRunning ? runSpeed : walkSpeed;
         move = move.normalized * speed;
 
-        controller.Move(move * Time.deltaTime + velocity * Time.deltaTime);
+        //controller.Move(move * Time.deltaTime + velocity * Time.deltaTime);
     }
 }

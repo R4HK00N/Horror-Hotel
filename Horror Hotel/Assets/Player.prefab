@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 6521640539024479563}
   - component: {fileID: 4897042387526422065}
   - component: {fileID: 4643216445400349833}
-  - component: {fileID: 8511338108773083806}
   - component: {fileID: 8663930929252822652}
-  - component: {fileID: 5836565105426860881}
+  - component: {fileID: 1880614560663062023}
   - component: {fileID: 2519004769706776273}
-  - component: {fileID: 6911411793568978906}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -120,31 +118,6 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &8511338108773083806
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054782589873979049}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.8
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8663930929252822652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,7 +145,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5836565105426860881
+--- !u!114 &1880614560663062023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,18 +154,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054782589873979049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de5489a4bd936b4ba2602b681fc99c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9371476c22500a64d87fc63eb8f3afdd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  walkSpeed: 6
-  runSpeed: 12
-  mouseSensitivity: 100
-  gravity: -20
-  staminaSlider: {fileID: 0}
-  maxStamina: 100
-  runDepleteRate: 20
-  regenRate: 10
-  cameraTransform: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Playercontroller
+  walkSpeed: 4
+  runSpeed: 6
+  runMultiplier: 1
+  maxStamina: 10
+  regenRate: 1
 --- !u!114 &2519004769706776273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +169,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054782589873979049}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b25e0fac2e17c4049acbcdd1d10195c8, type: 3}
   m_Name: 
@@ -211,19 +180,6 @@ MonoBehaviour:
   batteryDecrease: 2
   cooldownTime: 2
   testBatteryText: {fileID: 0}
---- !u!114 &6911411793568978906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054782589873979049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a288b77235f6cff42b6071eea507c299, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  interactionDistance: 3
 --- !u!1 &3352472645911668942
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6423219801821039176
 Transform:
   m_ObjectHideFlags: 0
@@ -349,6 +305,8 @@ GameObject:
   - component: {fileID: 4698552252835650588}
   - component: {fileID: 8714567073966415885}
   - component: {fileID: 1920569852035633902}
+  - component: {fileID: 6548496989877797592}
+  - component: {fileID: 5651814630301974338}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -570,6 +528,33 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &6548496989877797592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231257050601099475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a288b77235f6cff42b6071eea507c299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  interactionDistance: 3
+--- !u!114 &5651814630301974338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231257050601099475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f68818d7ae1f1c4689ee22f7aca49d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
+  player: {fileID: 2054782589873979049}
+  mouseSensitivity: 100
 --- !u!1 &7636901701717887987
 GameObject:
   m_ObjectHideFlags: 0
