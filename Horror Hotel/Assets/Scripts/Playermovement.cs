@@ -13,6 +13,11 @@ public class Playercontroller : MonoBehaviour
     [SerializeField] float maxStamina;
     [SerializeField] float regenRate;
 
+    [Header("Step handling")]
+    [SerializeField] float stepHeight = 0.4f;
+    [SerializeField] float stepSmooth = 0.1f;
+    [SerializeField] float stepCheckDistance = 0.4f;
+
     private float currentStamina;
     bool isRunning;
 
