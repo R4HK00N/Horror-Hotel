@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -45,6 +46,12 @@ public class EnemyAI : MonoBehaviour
 
         playerSeen = CanSeePlayer();
         if (!playerSeen && distToPlayer > sightDistance) playerSeen = false;
+
+        
+        if (Vector3.Distance(transform.position, player.position) < catchDistance)
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 
     bool CanSeePlayer()
