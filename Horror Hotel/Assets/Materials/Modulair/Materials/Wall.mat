@@ -224,8 +224,8 @@ Material:
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
-    - _RedBoundryGreater: 0.999
-    - _RedBoundryLesser: 0.001
+    - _RedBoundryGreater: 1
+    - _RedBoundryLesser: 0
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
