@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseTexture:
-        m_Texture: {fileID: 2800000, guid: 7f6f85c72439aee42b9f8a62511402bb, type: 3}
+        m_Texture: {fileID: 2800000, guid: cd9f4f636144e9d458bacb267e4adde8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -107,11 +107,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mettelic_texture:
-        m_Texture: {fileID: 2800000, guid: d0d96a39dedf89949984f65312827715, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7e17ca2186a28b5489825ec9be9f4db5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 9f3e9d29991030840a0432a380ac314f, type: 3}
+        m_Texture: {fileID: 2800000, guid: e97fff729f7f10a40b407d350dbeffc4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
