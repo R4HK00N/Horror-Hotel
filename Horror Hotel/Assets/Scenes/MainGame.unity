@@ -4148,20 +4148,25 @@ PrefabInstance:
       propertyPath: testBatteryText
       value: 
       objectReference: {fileID: 1891372356}
-    - target: {fileID: 4643216445400349833, guid: 6993ae412b80bab4f8fe12d260034e53,
+    - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
         type: 3}
-      propertyPath: m_Material
-      value: 
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8663930929252822652, guid: 6993ae412b80bab4f8fe12d260034e53,
+    - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
         type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.64
+      value: -1.53
       objectReference: {fileID: 0}
     - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
         type: 3}
@@ -4171,7 +4176,7 @@ PrefabInstance:
     - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.8
+      value: 13.17
       objectReference: {fileID: 0}
     - target: {fileID: 8672626017834532787, guid: 6993ae412b80bab4f8fe12d260034e53,
         type: 3}
