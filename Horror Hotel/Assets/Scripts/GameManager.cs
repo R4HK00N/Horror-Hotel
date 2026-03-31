@@ -8,17 +8,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] Collider startDoor;
 
     public static int collected = 0;
+    public static bool hasKey = false;        // Key status
     public static GameManager instance;
 
     void Awake()
     {
         instance = this;
         collected = 0;
+        hasKey = false;
     }
 
     void Start()
     {
-        // Fix: Only set Is Trigger if it's a BoxCollider or simple collider
         if (startDoor != null)
         {
             if (startDoor is BoxCollider || startDoor is SphereCollider || startDoor is CapsuleCollider)
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("StartDoor has a MeshCollider. Change it to BoxCollider or add a separate trigger.");
+                Debug.LogWarning("StartDoor should use BoxCollider for trigger.");
             }
         }
     }
@@ -40,6 +41,13 @@ public class GameManager : MonoBehaviour
             Debug.Log("You Win! All items collected.");
             Time.timeScale = 0f;
         }
+    }
+
+    // New: Called when picking up key
+    public void PickupKey()
+    {
+        hasKey = true;
+        Debug.Log("Key picked up!");
     }
 
     public void GameOver()
@@ -56,12 +64,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Door trigger - now checks for key
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SpawnEnemy();
-            if (startDoor != null) startDoor.enabled = false;
+            // If this is the start door
+            if (startDoor != null && other == startDoor)
+            {
+                SpawnEnemy();
+                startDoor.enabled = false;
+            }
+            // If this is the exit door (win door)
+            else if (hasKey)
+            {
+                Debug.Log("WIN GAME! You escaped with the key.");
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Debug.Log("You need the key to open this door.");
+            }
         }
     }
 }
