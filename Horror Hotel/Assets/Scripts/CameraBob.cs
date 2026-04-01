@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class CameraBob : MonoBehaviour
 {
-    [SerializeField] float bobIntensity = 0.05f;     // vertical bob strength
-    [SerializeField] float weaveIntensity = 0.03f;   // side-to-side weaving strength
+    [SerializeField] float bobIntensity = 0.05f;     // up/down
+    [SerializeField] float weaveIntensity = 0.03f;   // left/right
+    [SerializeField] float swayIntensity = 0.02f;    // new: forward/back sway
     [SerializeField] float bobSpeed = 10f;
 
     Vector3 startPos;
@@ -23,9 +24,10 @@ public class CameraBob : MonoBehaviour
             timer += Time.deltaTime * bobSpeed;
 
             float bob = Mathf.Sin(timer) * bobIntensity;
-            float weave = Mathf.Sin(timer * 0.5f) * weaveIntensity;   // slower side weave
+            float weave = Mathf.Sin(timer * 0.5f) * weaveIntensity;
+            float sway = Mathf.Sin(timer * 0.7f) * swayIntensity;   // forward/back sway
 
-            transform.localPosition = startPos + new Vector3(weave, bob, 0);
+            transform.localPosition = startPos + new Vector3(weave, bob, sway);
         }
         else
         {
