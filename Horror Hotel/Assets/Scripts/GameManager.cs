@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Collider startDoor;
 
     public static int collected = 0;
-    public static bool hasKey = false;        // Key status
+    public static bool hasKey = false;
+    public static bool hasOpenedExitDoor = false;   // New bool for exit door
+
     public static GameManager instance;
 
     void Awake()
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         collected = 0;
         hasKey = false;
+        hasOpenedExitDoor = false;
     }
 
     void Start()
@@ -23,13 +26,7 @@ public class GameManager : MonoBehaviour
         if (startDoor != null)
         {
             if (startDoor is BoxCollider || startDoor is SphereCollider || startDoor is CapsuleCollider)
-            {
                 startDoor.isTrigger = true;
-            }
-            else
-            {
-                Debug.LogWarning("StartDoor should use BoxCollider for trigger.");
-            }
         }
     }
 
@@ -43,7 +40,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // New: Called when picking up key
     public void PickupKey()
     {
         hasKey = true;
@@ -64,27 +60,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Door trigger - now checks for key
-    void OnTriggerEnter(Collider other)
+    // Called when player interacts with Exit Door
+    public void OpenExitDoor()
     {
-        if (other.CompareTag("Player"))
+        hasOpenedExitDoor = true;
+        if (hasKey)
         {
-            // If this is the start door
-            if (startDoor != null && other == startDoor)
-            {
-                SpawnEnemy();
-                startDoor.enabled = false;
-            }
-            // If this is the exit door (win door)
-            else if (hasKey)
-            {
-                Debug.Log("WIN GAME! You escaped with the key.");
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                Debug.Log("You need the key to open this door.");
-            }
+            Debug.Log("WIN GAME! You escaped with the key.");
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Debug.Log("You need the key to open this door.");
         }
     }
 }
