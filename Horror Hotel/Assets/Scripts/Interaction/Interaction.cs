@@ -3,7 +3,6 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     [SerializeField] float interactionDistance;
-
     void Update()
     {
         // Single click (mouse press)
@@ -29,6 +28,7 @@ public class Interaction : MonoBehaviour
 
             if (interactable != null)
             {
+
                 if (isEndClick)
                     interactable.OnInteractEnd();    // Trigger on mouse release
                 else
