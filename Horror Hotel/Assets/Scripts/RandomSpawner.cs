@@ -2,31 +2,29 @@ using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
-    [SerializeField] Transform[] enemySpawnPoints;
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] Transform[] spawnPoints;      // 5 different spawn points
+    [SerializeField] GameObject[] randomImages;    // Images / objects to randomly turn on
 
-    [SerializeField] GameObject[] alwaysOnItems;   // always turned on
-    [SerializeField] GameObject[] randomItems;     // pool of possible extras
-    [SerializeField] int extraToSpawn = 2;
+    [SerializeField] int imagesToActivate = 2;     // How many random images to turn on
 
     void Start()
     {
-        // Random enemy spawn (once)
-        if (enemySpawnPoints.Length > 0 && enemyPrefab != null)
+        // Random spawn for one object (e.g. key, item, etc.)
+        if (spawnPoints.Length > 0)
         {
-            Transform spawn = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
-            Instantiate(enemyPrefab, spawn.position, spawn.rotation);
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            // Example: spawn something here if needed
+            Debug.Log("Random spawn at point: " + randomIndex);
         }
 
-        // Always on items
-        foreach (var item in alwaysOnItems)
-            if (item) item.SetActive(true);
-
-        // Extra random items
-        for (int i = 0; i < extraToSpawn && randomItems.Length > 0; i++)
+        // Turn on random images
+        for (int i = 0; i < imagesToActivate && randomImages.Length > 0; i++)
         {
-            int r = Random.Range(0, randomItems.Length);
-            if (randomItems[r]) randomItems[r].SetActive(true);
+            int r = Random.Range(0, randomImages.Length);
+            if (randomImages[r] != null)
+            {
+                randomImages[r].SetActive(true);
+            }
         }
     }
 }
